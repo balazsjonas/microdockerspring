@@ -9,10 +9,16 @@ import java.time.LocalDateTime;
 
 @RestController
 public class HelloController {
+    private final HelloService helloService;
+
+    public HelloController(HelloService helloService) {
+        this.helloService = helloService;
+    }
+
 
     @GetMapping("/hello")
     @ResponseBody
     public String hello(@PathParam("name") String name) {
-        return "hello " + name+" at "+ LocalDateTime.now();
+        return helloService.haySello();
     }
 }

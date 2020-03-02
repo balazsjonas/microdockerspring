@@ -27,7 +27,20 @@ spring rétegek:
   fölsőbb réteg hívhat lefelé, alsóbb nem hívhat fölfelé
 Spring 2.3.0:
   Docker támogatás!!!
+config:
+  saját osztályok componenet scan
+  3rd party configgal
 12 faktor:
   loggolás konzolra
     nem az alkalmazás feladata a naplózás, hanem az üzemeltetésé
   
+
+
+linkek:
+https://martinfowler.com/bliki/FeatureToggle.html
+https://github.com/ff4j/ff4j
+
+https://buildpacks.io/
+
+https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1
+https://spring.io/guides/gs/spring-boot-docker/
