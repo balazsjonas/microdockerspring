@@ -33,8 +33,25 @@ config:
 12 faktor:
   loggolás konzolra
     nem az alkalmazás feladata a naplózás, hanem az üzemeltetésé
-  
+SpringTest
+  Configokat cacheli
+  Tesztek között nem hoz létre új ApplicationContexted
+  Ha mégis van állapot:
+    @DirtiesContext --> ez a teszt szétbarmolja az applicationcontext
+  Integrációs tesztek futtatása (ált package után)
+    *IT-re filgyel: failsafe
+  mvn pluginok:
+    unit: surefire
+    it: failsafe
+  http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
 
+devtools:
+    2 osztálybetöltő:
+        egyik a saját kód, másik a függőségek
+    újraindítja a tomcatetis
+    livereload
+    Remote applications:
+        serveren futó alkalmazáshoz hozzáadhatjuk a saját classpathunkat
 
 linkek:
 https://martinfowler.com/bliki/FeatureToggle.html
@@ -44,3 +61,7 @@ https://buildpacks.io/
 
 https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1
 https://spring.io/guides/gs/spring-boot-docker/
+
+
+TODO: surefire vs failsafe
+TODO: remote applications

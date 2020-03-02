@@ -19,6 +19,6 @@ public class HelloController {
     @GetMapping("/hello")
     @ResponseBody
     public String hello(@PathParam("name") String name) {
-        return helloService.haySello();
+        return helloService.haySello().toUpperCase();
     }
 }

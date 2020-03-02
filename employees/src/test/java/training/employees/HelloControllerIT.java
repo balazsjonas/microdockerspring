@@ -7,16 +7,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-class EmployeesApplicationTests {
+public class HelloControllerIT {
 
     @Autowired
-    HelloService helloService;
-    @Test
-    void contextLoads() {
-    }
+    HelloController helloController;
 
     @Test
-    public void hello() {
-        assertThat(new HelloService().haySello()).startsWith("Hello");
+    void testSayHello() {
+        assertThat(helloController.hello("asdf")).startsWith("HELLO2");
     }
 }
