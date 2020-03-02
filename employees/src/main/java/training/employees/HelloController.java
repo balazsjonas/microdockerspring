@@ -5,20 +5,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.websocket.server.PathParam;
-import java.time.LocalDateTime;
 
 @RestController
 public class HelloController {
-    private final HelloService helloService;
+    private final Hello hello;
 
-    public HelloController(HelloService helloService) {
-        this.helloService = helloService;
+    public HelloController(Hello hello) {
+        this.hello = hello;
     }
 
 
     @GetMapping("/hello")
     @ResponseBody
     public String hello(@PathParam("name") String name) {
-        return helloService.haySello().toUpperCase();
+        return hello.haySello().toUpperCase();
     }
 }

@@ -2,6 +2,17 @@ Craig Walls: Spring in Action, 5th (Manning)
 Spring boot ref docs
 udemy:
   john thomson: Docker for java developers, Testing spring boot, reactive programming with spring 5
+Beyond the 12 factor app
+    API first: (kivülről haladunk befelé)
+        vs clean architecture:
+        először üzleti logika, aztán API
+    credentials is külön tárolva :-)
+        GITHUB: figyelmeztet, ha security isssue van a repoban
+    telemetry
+        pl actuatorok
+
+
+
 spring
   glue code
   template: (jdbc helyett pl)
@@ -30,9 +41,7 @@ Spring 2.3.0:
 config:
   saját osztályok componenet scan
   3rd party configgal
-12 faktor:
-  loggolás konzolra
-    nem az alkalmazás feladata a naplózás, hanem az üzemeltetésé
+
 SpringTest
   Configokat cacheli
   Tesztek között nem hoz létre új ApplicationContexted
@@ -52,6 +61,20 @@ devtools:
     livereload
     Remote applications:
         serveren futó alkalmazáshoz hozzáadhatjuk a saját classpathunkat
+
+12 faktor:
+    config nem az alkalmazás része
+        Infrastruktúra üzemeltetés repójában
+        pl Cloud Config mögöt repó van
+    háttérszolgáltatás:
+        db, cache
+        az alkalmazás összes állapota adatbázisban/cache-ben van
+
+
+    loggolás konzolra
+        nem az alkalmazás feladata a naplózás, hanem az üzemeltetésé
+
+
 
 linkek:
 https://martinfowler.com/bliki/FeatureToggle.html
