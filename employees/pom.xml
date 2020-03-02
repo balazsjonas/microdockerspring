@@ -31,11 +31,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.ff4j</groupId>-->
-<!--            <artifactId>ff4j-core</artifactId>-->
-<!--            <version>1.8.2</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.ff4j</groupId>
+            <artifactId>ff4j-core</artifactId>
+            <version>1.8.2</version>
+        </dependency>
 <!--        <dependency>-->
 <!--            <groupId>org.ff4j</groupId>-->
 <!--            <artifactId>ff4j-web</artifactId>-->
