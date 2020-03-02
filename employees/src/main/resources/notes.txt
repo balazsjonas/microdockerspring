@@ -1,0 +1,33 @@
+Craig Walls: Spring in Action, 5th (Manning)
+Spring boot ref docs
+udemy:
+  john thomson: Docker for java developers, Testing spring boot, reactive programming with spring 5
+spring
+  glue code
+  template: (jdbc helyett pl)
+  plugin: mindent le lehet cserélni sajátra
+  tesztelhetőség
+springboot
+  autoconfig:
+    valami van a classpathon --> bekonfigolja
+  actuator:
+    üzemeltethető alkalmazások
+library vs keretrendszer:
+  keretrendszer, ami engem hív
+    ezek konténerek, feledete a komponensek tárolása
+    ez egy map, kulcs a komponens neve
+    ez a spring Application Context
+  library amit én hívok
+AOP példa springben:
+  crosscuttingconcern:
+   üzleti logikára merőleges funkció, pl biztonság, authentication/authorization
+A spring nem kezeli a http protokollt (tomcat vagy jetty) 
+springbootba bele lehet csomagolni a tomcatet
+spring rétegek:
+  fölsőbb réteg hívhat lefelé, alsóbb nem hívhat fölfelé
+Spring 2.3.0:
+  Docker támogatás!!!
+12 faktor:
+  loggolás konzolra
+    nem az alkalmazás feladata a naplózás, hanem az üzemeltetésé
+  
