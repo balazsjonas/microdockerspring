@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.websocket.server.PathParam;
 
-@RestController // mindenre rárakja a ResponseBody-t
+//@RestController // mindenre rárakja a ResponseBody-t
 public class HelloController {
     private final Hello hello;
 

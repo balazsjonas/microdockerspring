@@ -145,6 +145,15 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
   * globális ExceptionResolver
   * lokálisan, controlleren belül @ExceptionHandler
   * külön *ControllerAdvice annotációval ellátott osztály az összes kontrollerre vonatkozik
+  
+**Integrációs teszt**
+* SpringBootTest: egész alkalmazás elindul
+* WebMvcTest csak a controller indul el és a Service réteget mockolni kell (Mockito vagy @MockBean)
+* MockMvc (még ez sem indít servletet pl tomcatet)
+* LocalServerPort-tal lekérdezhető a port, 
+* 
+
+
 
 **linkek**:
 * https://martinfowler.com/bliki/FeatureToggle.html
