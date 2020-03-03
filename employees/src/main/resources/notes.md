@@ -78,9 +78,10 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
   * háttérszolgáltatás:
     * db, cache
     * az alkalmazás összes állapota adatbázisban/cache-ben van
-
-  * loggolás konzolra
-        nem az alkalmazás feladata a naplózás, hanem az üzemeltetésé
+* loggolás konzolra
+  * nem az alkalmazás feladata a naplózás, hanem az üzemeltetésé
+* API first
+  * apiblueprint, swagger/openAPI 
 
 **RESTful**
   * SOAP vs REST:
@@ -93,6 +94,7 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
       * POST/GET etc
       * MIME, content negotiation
       * status codes
+        * https://httpstatusdogs.com/
       * URL + paramétereket tudunk átadni
       * header, cookie
       * "az alkalmazás erőforrások összessége és az ezeken végzett CRUD műveletek"
@@ -123,8 +125,26 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
               * URL paraméter (ez sok lehet)
               * Session, de maradhat hátra adat
               * FLASH scope: kötvetkező get előtt kiveszi
-   
 
+**notes**
+ * entitás csak repo és service között utazik
+ * service réteg felett csak DTO utazzon
+   * biztonság, nem menjen ki nem kívánt adat, entitás managed
+ * command & query segregation:
+   * vannak olyan metódus ami módosít és van olyan ami lekérdez
+   * ne keveredjen pl AtomicInteger::addAndGet()   
+   * egyiket kell tranzakcióba rakni a másikat nem
+   * bejövő adat: command/query/request
+   * kimenő adat: DTO/response
+     * hátrány sok osztály és konvertálgatni kell (ModelMapper, Lombok)
+     * 3 különböző DTO getre, queryre és updatere 
+
+**Hibakezelés**
+  * annotációval nem lehet, csak web.xml-lel
+  * saját exceptionre @ResponseStatus annotáció
+  * globális ExceptionResolver
+  * lokálisan, controlleren belül @ExceptionHandler
+  * külön *ControllerAdvice annotációval ellátott osztály az összes kontrollerre vonatkozik
 
 **linkek**:
 * https://martinfowler.com/bliki/FeatureToggle.html
@@ -132,6 +152,7 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
 * https://buildpacks.io/
 * https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1
 * https://spring.io/guides/gs/spring-boot-docker/
+
 
 
 **TODO**

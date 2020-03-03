@@ -1,4 +1,4 @@
-package training.employees;
+package training.employees.hello;
 
 public interface Hello {
     String haySello();

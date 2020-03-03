@@ -1,9 +1,9 @@
-package training.employees;
+package training.employees.hello;
 
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
+import training.employees.hello.Hello;
 
 import java.time.Instant;
 

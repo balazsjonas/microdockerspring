@@ -1,4 +1,4 @@
-package training.employees;
+package training.employees.hello;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.websocket.server.PathParam;
 
-@RestController
+@RestController // mindenre rárakja a ResponseBody-t
 public class HelloController {
     private final Hello hello;
 
