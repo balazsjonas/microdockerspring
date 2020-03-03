@@ -13,8 +13,10 @@ import training.employees.model.CreateEmployeeCommand;
 import training.employees.model.Employee;
 import training.employees.model.EmployeeDto;
 
+import static org.hamcrest.Matchers.equalTo;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest
@@ -38,7 +40,10 @@ public class EmployeesControllerIT {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"name\": \"Dó Józsi\"}"))
                 .andExpect(status().isCreated())
-                .andDo(mvcResult -> System.out.println(mvcResult.getResponse().getContentAsString()));
+                .andDo(mvcResult -> System.out.println(mvcResult.getResponse().getContentAsString()))
+        .andExpect(jsonPath("$.name", equalTo("Dó Józsi")));
+
+        verify(employeesService, never()).findEmployeeById(anyInt());
 
     }
 }
