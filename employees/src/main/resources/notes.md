@@ -1,4 +1,4 @@
-olvasnivaló:
+**olvasnivaló**:
  * Craig Walls: Spring in Action, 5th (Manning)
  * Spring boot ref docs
  * udemy:
@@ -12,28 +12,26 @@ olvasnivaló:
     * telemetry
       * pl actuatorok
 
-
-
-spring
+**spring**
 * glue code
 * template: (jdbc helyett pl)
 *  plugin: mindent le lehet cserélni sajátra
 *  tesztelhetőség
 
-springboot
+**springboot**
 * autoconfig:
   * valami van a classpathon --> bekonfigolja
 * actuator:
   * üzemeltethető alkalmazások
   
-library vs keretrendszer:
+**library vs keretrendszer**:
 * keretrendszer, ami engem hív
   *  ezek konténerek, feledete a komponensek tárolása
   *  ez egy map, kulcs a komponens neve
   *  ez a spring Application Context
 * library amit én hívok
 
-AOP példa springben:
+**AOP példa springben**:
 * crosscuttingconcern:
   *  üzleti logikára merőleges funkció, pl biztonság, authentication/authorization
   
@@ -47,11 +45,11 @@ spring rétegek:
 Spring 2.3.0:
   Docker támogatás!!!
 
-config:
+**config**:
 *  saját osztályok componenet scan
 *  3rd party configgal
 
-SpringTest
+**SpringTest**
 * Configokat cacheli
 * Tesztek között nem hoz létre új ApplicationContexted
 * Ha mégis van állapot:
@@ -64,7 +62,7 @@ SpringTest
 
 http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
 
-devtools:
+**devtools**:
 * 2 osztálybetöltő:
   * egyik a saját kód
   * másik a függőségek
@@ -73,7 +71,7 @@ devtools:
 * Remote applications:
   * serveren futó alkalmazáshoz hozzáadhatjuk a saját classpathunkat
 
-12 faktor:
+**12 faktor**:
 * config nem az alkalmazás része
   * Infrastruktúra üzemeltetés repójában
     * pl Cloud Config mögöt repó van
@@ -84,18 +82,58 @@ devtools:
   * loggolás konzolra
         nem az alkalmazás feladata a naplózás, hanem az üzemeltetésé
 
+**RESTful**
+  * SOAP vs REST:
+    * nincs interfész leíró nyelv
+    * SOAP inkább XML-re támaszkodik
+    * REST nem kötődik formátumhoz
+    * SOAP: protokoll független (HTTP-n szoktuk, de lehet JMS vagy akármi)
+    * REST HTTP-re épül
+      * kérés-válasz
+      * POST/GET etc
+      * MIME, content negotiation
+      * status codes
+      * URL + paramétereket tudunk átadni
+      * header, cookie
+      * "az alkalmazás erőforrások összessége és az ezeken végzett CRUD műveletek"
+      * rossz példa:
+        * localhost/doTransfer?from=A&to=B&amount=100
+        * ez inkább RPC http/json felett
+      * CRUD:
+        * Read: GET
+        * Delete: DELETE
+        * Create: POST v. PUT
+        * Update: POST v. PUT
+      * POST vs PUT:
+        * **idempotens**: az adott művelet megismételhető!!!
+        * Ha idempotens, akkor lehet PUT
+        * Ha nem idempotens, akkor POST kell, hogy legyen
+        * POST: újraküldésre a böngészők szoktak ráküldezni
+        * pl visszalépés keresési oldalra:
+          * GET-et kell használni, szerver oldalon nincs állapotváltozás
+            * url-ben van --> bookmarkolható
+            * probléma:
+              * ékezet
+              * méretkorlátok (szabványban nincs, de az eszközökben (router, böngésző, szerver) van)
+              * megjelenik a history-ban 
+          * POST:
+            * minta: redirect after post
+            * találatok GETtel jönnek le
+            * probléma: adatokat kell adni
+              * URL paraméter (ez sok lehet)
+              * Session, de maradhat hátra adat
+              * FLASH scope: kötvetkező get előtt kiveszi
+   
 
 
-linkek:
-https://martinfowler.com/bliki/FeatureToggle.html
-https://github.com/ff4j/ff4j
-
-https://buildpacks.io/
-
-https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1
-https://spring.io/guides/gs/spring-boot-docker/
+**linkek**:
+* https://martinfowler.com/bliki/FeatureToggle.html
+* https://github.com/ff4j/ff4j
+* https://buildpacks.io/
+* https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1
+* https://spring.io/guides/gs/spring-boot-docker/
 
 
-TODO
+**TODO**
  * surefire vs failsafe
  * remote applications
