@@ -176,7 +176,14 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
     * Lombok   
 
 **Adatbázis**
-
+ * JDBCtemplate
+   * ResultSetből mappelést nekünk kell végezni, minden mást elvégez
+ * séma iniciaálizálás
+   * pl: CommandLineRunnert kell implementálni, persze élesben sose :-)
+   * Flyway, liquibase 
+ * Spring Data JPA
+ 
+   
 
 **linkek**:
 * https://martinfowler.com/bliki/FeatureToggle.html

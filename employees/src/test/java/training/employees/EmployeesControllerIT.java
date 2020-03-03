@@ -9,6 +9,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import training.employees.hello.HelloController;
+import training.employees.hello.HelloService;
 import training.employees.model.CreateEmployeeCommand;
 import training.employees.model.Employee;
 import training.employees.model.EmployeeDto;
@@ -19,10 +21,16 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest
+@WebMvcTest(properties = "features.hello.special=true")
 public class EmployeesControllerIT {
     @MockBean
     EmployeesService employeesService;
+
+    @MockBean
+    HelloService helloService;
+
+    @Autowired
+    HelloController helloController;
 
     @Autowired
     MockMvc mockMvc;

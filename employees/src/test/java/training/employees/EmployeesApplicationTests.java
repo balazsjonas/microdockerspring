@@ -1,5 +1,6 @@
 package training.employees;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,6 +19,6 @@ class EmployeesApplicationTests {
 
     @Test
     public void hello() {
-        assertThat(new HelloService().haySello()).startsWith("Hello");
+        assertThat(helloService.haySello()).startsWith("Hello");
     }
 }
