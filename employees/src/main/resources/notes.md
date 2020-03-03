@@ -11,7 +11,9 @@
       * GITHUB: figyelmeztet, ha security isssue van a repoban
     * telemetry
       * pl actuatorok
-
+* Beginning java EE 7
+  * bean validation
+  
 **spring**
 * glue code
 * template: (jdbc helyett pl)
@@ -151,8 +153,29 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
 * WebMvcTest csak a controller indul el és a Service réteget mockolni kell (Mockito vagy @MockBean)
 * MockMvc (még ez sem indít servletet pl tomcatet)
 * LocalServerPort-tal lekérdezhető a port, 
-* 
 
+**Validáció**
+* Referencia implementáció: Hibernate 
+* ne réteghez legyen kötve, hanem az adatot hordozó beanhez
+* paraméterre @Valid-ot kell rakni
+* Beginning java EE 7
+
+**Configuration**
+* precedencia:
+  * application.properties < OS environment < parancssori paraméterek
+* @Value: egyszer felolvassa
+* environment.getProperties(): Resten keresztül változtatható
+* Profiles:
+  * a profile elavult
+  * ConditionalBean preferált
+  
+**Naplózás**
+  * Springen belül Commons Logging, de saját implementációjuk van
+  * best practice
+    * SLF4j
+    * Lombok   
+
+**Adatbázis**
 
 
 **linkek**:

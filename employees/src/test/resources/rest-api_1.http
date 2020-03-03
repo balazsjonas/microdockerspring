@@ -1,0 +1,73 @@
+GET http://localhost:8081/api/employees
+
+<> 2020-03-03T111842.200.json
+<> 2020-03-03T111832.200.json
+
+
+
+###
+GET http://localhost:8081/api/employees/100
+
+<> 2020-03-03T011227.404.json
+<> 2020-03-03T011222.404.json
+<> 2020-03-03T125914.404.json
+<> 2020-03-03T125730.500.json
+<> 2020-03-03T125706.404.txt
+<> 2020-03-03T125411.404.txt
+<> 2020-03-03T125325.200.txt
+<> 2020-03-03T125323.200.txt
+<> 2020-03-03T124952.200.txt
+
+
+
+###
+
+POST http://localhost:8081/api/employees/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Doe János"
+}
+
+
+###
+
+POST http://localhost:8081/api/employees
+Content-Type: application/json
+
+{
+  "name": "Jack Doe"
+}
+
+<> 2020-03-03T124331.201.json
+<> 2020-03-03T124317.200.json
+<> 2020-03-03T111840.200.json
+<> 2020-03-03T111829.200.json
+<> 2020-03-03T111824.200.json
+
+###
+
+DELETE http://localhost:8081/api/employees/1
+
+<> 2020-03-03T011210.404.json
+<> 2020-03-03T011141.404.json
+<> 2020-03-03T011138.404.json
+<> 2020-03-03T011057.404.json
+<> 2020-03-03T011035.404.json
+<> 2020-03-03T011023.404.json
+<> 2020-03-03T011021.404.json
+<> 2020-03-03T010202.404.json
+<> 2020-03-03T010140.404.json
+
+###
+
+POST http://localhost:8081/api/employees
+Content-Type: application/json
+
+{
+  "name": "    "
+}
+
+###
+

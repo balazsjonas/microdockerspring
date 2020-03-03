@@ -10,6 +10,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.client.RestTemplate;
 import training.employees.model.EmployeeDto;
@@ -42,7 +43,7 @@ public class MockMvcTest {
     }
 
     @Test
-//    @Disabled
+    @DirtiesContext
     void listEmployees() {
         System.out.println("hello@" + port);
         System.out.println(restTemplate.getRootUri());

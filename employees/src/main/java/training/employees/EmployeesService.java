@@ -1,5 +1,6 @@
 package training.employees;
 
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import training.employees.model.CreateEmployeeCommand;
@@ -14,6 +15,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 public class EmployeesService {
     private AtomicLong id = new AtomicLong();
 
@@ -34,6 +36,8 @@ public class EmployeesService {
     }
 
     public List<EmployeeDto> listEmployees(String prefix) {
+        log.info("list employees");
+        log.debug("list employees (debug)");
         return employees.stream()
                 .filter(e -> prefix == null || e.getName().toLowerCase().startsWith(prefix.toLowerCase()))
                 .map(e -> modelMapper.map(e, EmployeeDto.class))

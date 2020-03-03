@@ -6,6 +6,7 @@ import training.employees.model.CreateEmployeeCommand;
 import training.employees.model.Employee;
 import training.employees.model.EmployeeDto;
 
+import javax.validation.Valid;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
@@ -35,7 +36,7 @@ public class EmployeeController {
 
     @PostMapping
     @ResponseStatus(CREATED)
-    public EmployeeDto createEmployee(@RequestBody CreateEmployeeCommand command) {
+    public EmployeeDto createEmployee(@Valid @RequestBody CreateEmployeeCommand command) {
         return employeesService.createEmployee(command);
     }
 
