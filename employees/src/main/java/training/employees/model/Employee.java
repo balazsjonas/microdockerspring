@@ -9,4 +9,7 @@ public class Employee {
     private long id;
     private String name;
 
+    public Employee(String name) {
+        this.name = name;
+    }
 }

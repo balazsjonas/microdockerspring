@@ -21,54 +21,47 @@ public class EmployeesService {
 
     private ModelMapper modelMapper;
 
-    private List<Employee> employees = Collections.synchronizedList(new ArrayList<>(List.of(
-            new Employee(id.incrementAndGet(), "John Doe"),
-            new Employee(id.incrementAndGet(), "Jane Doe"))));
+    private EmployeesRepository employeesRepository;
 
-    public EmployeesService(ModelMapper modelMapper) {
+//    private List<Employee> employees = Collections.synchronizedList(new ArrayList<>(List.of(
+//            new Employee(id.incrementAndGet(), "John Doe"),
+//            new Employee(id.incrementAndGet(), "Jane Doe"))));
+
+    public EmployeesService(ModelMapper modelMapper, EmployeesRepository employeesRepository) {
         this.modelMapper = modelMapper;
+        this.employeesRepository = employeesRepository;
     }
 
     public EmployeeDto createEmployee(CreateEmployeeCommand command) {
-        Employee employee = new Employee(id.incrementAndGet(), command.getName());
-        employees.add(employee);
+        var employee = employeesRepository.saveEmployee(new Employee(command.getName()));
         return modelMapper.map(employee, EmployeeDto.class);
     }
 
     public List<EmployeeDto> listEmployees(String prefix) {
         log.info("list employees");
         log.debug("list employees (debug)");
-        return employees.stream()
+        return employeesRepository.listAllEmployees(prefix).stream()
                 .filter(e -> prefix == null || e.getName().toLowerCase().startsWith(prefix.toLowerCase()))
                 .map(e -> modelMapper.map(e, EmployeeDto.class))
                 .collect(Collectors.toList());
     }
 
     public EmployeeDto findEmployeeById(long id) {
-        return employees.stream().filter(e -> id == e.getId()).findFirst()
-                .map(e -> modelMapper.map(e, EmployeeDto.class))
-                .orElseThrow(() -> new EmployeeNotFoundException("Cannot find employee with id " + id));
+        return modelMapper.map(employeesRepository.findEmployeeById(id), EmployeeDto.class);
     }
 
     public EmployeeDto updateEmployee(long id, UpdateEmployeeCommand command) {
-        Employee employee = employees.stream().filter(e -> id == e.getId()).findFirst()
-                .orElseThrow(() -> new EmployeeNotFoundException("Cannot find employee with id " + id));
-        employee.setName(command.getName());
+        var employee = employeesRepository.updateEmployee(new Employee(id, command.getName()));
         return modelMapper.map(employee, EmployeeDto.class);
     }
 
     public void deleteEmployee(long id) {
-        Optional<Employee> employeeToDelete = employees.stream().filter(e -> id == e.getId()).findFirst();
-        if (employeeToDelete.isPresent()) {
-            employees.remove(employeeToDelete.get());
-        }
-        else {
-            throw new EmployeeNotFoundException("Cannot find employee with id " + id);
-        }
+        employeesRepository.deleteEmployee(id);
     }
 
     public void deleteAll() {
         id.set(0);
-        employees.clear();
+        employeesRepository.deleteAll();
+
     }
 }

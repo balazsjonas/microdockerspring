@@ -182,7 +182,9 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
    * pl: CommandLineRunnert kell implementálni, persze élesben sose :-)
    * Flyway, liquibase 
  * Spring Data JPA
- 
+ * deleteAll:
+   * prodban nem lehet teszt kód
+   * clean architecture: külön jar, de ne legyen deployolva
    
 
 **linkek**:
