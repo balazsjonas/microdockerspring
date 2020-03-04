@@ -10,8 +10,12 @@ import java.time.Instant;
 //@Profile("!special-hello")
 @ConditionalOnProperty(name = "features.hello.special", matchIfMissing = true)
 public class HelloService implements Hello {
-    @Value("${hello}")
+
     private String hello;
+
+    public HelloService(@Value("${hello}") String hello) {
+        this.hello = hello;
+    }
 
     public String haySello() {
         return hello + Instant.now();

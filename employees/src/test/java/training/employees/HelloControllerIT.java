@@ -5,11 +5,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import training.employees.hello.HelloController;
+import training.employees.hello.HelloService;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-@Disabled
 public class HelloControllerIT {
 
     @Autowired
@@ -17,6 +17,11 @@ public class HelloControllerIT {
 
     @Test
     void testSayHello() {
-        assertThat(helloController.hello("asdf")).startsWith("HELLO2");
+        assertThat(helloController.hello("asdf")).startsWith("HELLO");
+    }
+
+    @Test
+    void testSayHello2() {
+        assertThat(new HelloService("HELLO").haySello().startsWith("HELLO"));
     }
 }

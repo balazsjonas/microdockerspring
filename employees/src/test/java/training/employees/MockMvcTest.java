@@ -1,6 +1,6 @@
 package training.employees;
 
-import org.h2.jdbc.JdbcSQLSyntaxErrorException;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;

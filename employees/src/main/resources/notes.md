@@ -13,6 +13,7 @@
       * pl actuatorok
 * Beginning java EE 7
   * bean validation
+* Release It!
   
 **spring**
 * glue code
@@ -197,6 +198,19 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
  * CRUD műveletek EntityManageren keresztül
  * memóriában levő managed állapotban lévő entitások: Persistence context
  * commit után detached állapot, aztán a gc összeszedi
+ 
+**Spring Data JPA**
+ * Módosításhoz tranzakció kell (vs JDBC-nél minden külön tranzakcióban)
+   * Deklaratív tranzakciókezelés preferált
+
+**JPA Test**
+ * perzisztens réteget nem érdemes unittesztelni!!!
+ * @DataJpatest --> embedded h2-t indít
+   * injektálható: JPA repo, datasource, jdbctemplate, entitymanager
+   * minden teszt metódus saját tranzakcióban, végén rollback
+ * SpringBootTest
+   * ebből van a baj :-)
+   * exception csak commitkor van!!
    
 
 **linkek**:
@@ -205,7 +219,8 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
 * https://buildpacks.io/
 * https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1
 * https://spring.io/guides/gs/spring-boot-docker/
-
+* https://github.com/vishnubob/wait-for-it
+* http://dbunit.sourceforge.net/
 
 
 **TODO**
