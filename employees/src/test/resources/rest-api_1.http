@@ -69,5 +69,11 @@ Content-Type: application/json
   "name": "    "
 }
 
+### ?????
+POST http://localhost:8081/actuator/loggers/training
+Content-Type: application/json
+
+{ "level": "DEBUG"}
+
 ###
 

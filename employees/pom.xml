@@ -134,6 +134,11 @@
 <!--&lt;!&ndash;                <version>3.0.0-M4</version>&ndash;&gt;-->
 <!--                [... configuration or goals and executions ...]-->
 <!--            </plugin>-->
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>4.0.0</version>
+            </plugin>
         </plugins>
     </build>
 

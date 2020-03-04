@@ -216,7 +216,11 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
  * Message oriented middleware
  
 **Actuatorok**
- * 
+ * threaddump: https://www.jtechlog.hu/2020/02/11/thread-dump.html
+ * HttpTraceRepository:
+   * http kéréseket elmenti
+ * git információk megjelenítés
+   * 
 
 **linkek**:
 * https://martinfowler.com/bliki/FeatureToggle.html
@@ -226,8 +230,10 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
 * https://spring.io/guides/gs/spring-boot-docker/
 * https://github.com/vishnubob/wait-for-it
 * http://dbunit.sourceforge.net/
+* https://www.jtechlog.hu/2020/02/11/thread-dump.html
 
 
 **TODO**
  * surefire vs failsafe
  * remote applications
+ * pl.project13.maven:git-commit-id-plugin
