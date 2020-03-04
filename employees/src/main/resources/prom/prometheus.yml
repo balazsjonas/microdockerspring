@@ -1,0 +1,7 @@
+scrape_configs:
+  - job_name: 'spring'
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 20s
+    static_configs:
+      - targets: ['host.docker.internal:8081']
+# docker run -p 9090:9090 -d --rm  -v C:\Users\Training\IdeaProjects\employees\src\main\resources\prom:/etc/prometheus --name prometheus prom/prometheus
