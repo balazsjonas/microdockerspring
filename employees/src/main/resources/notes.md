@@ -185,6 +185,18 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
  * deleteAll:
    * prodban nem lehet teszt kód
    * clean architecture: külön jar, de ne legyen deployolva
+ * DataSource:
+   * ez egy factory, 
+   * ez csak a connection paramétereit tartalmazza
+   * ettől lehet kérni connections
+   * a legtöbb tud connection-poolt is
+     * Spring connection pool: Hikari
+ * implementáció: JDBC driverben
+ * entitás:
+   * kell, hogy legyen ID-ja
+ * CRUD műveletek EntityManageren keresztül
+ * memóriában levő managed állapotban lévő entitások: Persistence context
+ * commit után detached állapot, aztán a gc összeszedi
    
 
 **linkek**:

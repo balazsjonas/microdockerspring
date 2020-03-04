@@ -1,5 +1,6 @@
 package training.employees;
 
+import org.h2.jdbc.JdbcSQLSyntaxErrorException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
@@ -18,6 +19,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.client.RestTemplate;
 import training.employees.model.EmployeeDto;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -36,15 +38,24 @@ public class MockMvcTest {
     TestRestTemplate restTemplate;
 
     @Autowired
-    private  JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     @BeforeEach
-    public  void setup() {
-        jdbcTemplate.execute("drop table emp_name");
+    public void setup() {
+        try {
+            jdbcTemplate.execute("drop table employees");
+            jdbcTemplate.execute("create table employees " +
+                    "(id bigint auto_increment, emp_name varchar(255), constraint pk_employee primary key (id))");
+            jdbcTemplate.execute("insert into employees(emp_name) values ('John Doe');");
+            jdbcTemplate.execute("insert into employees(emp_name) values ('Jane Doe');");
+        } catch (Exception e) {
+            System.out.println("HIBA");
+        }
     }
 
 
     @Test
+    @DirtiesContext
     void createEmployee() {
         restTemplate.postForObject("/api/employees", "{\"name\": \"Dó Józsi\"}", EmployeeDto.class);
 
@@ -60,7 +71,7 @@ public class MockMvcTest {
         System.out.println(restTemplate.getRootUri());
 
         // NOTE: Type erasure
-        List<EmployeeDto> employees = restTemplate.getForObject("/api/employees", List.class);
+        List<EmployeeDto> employees;
         employees = restTemplate.exchange("/api/employees", HttpMethod.GET, null,
                 new ParameterizedTypeReference<List<EmployeeDto>>() {
                 }).getBody();
