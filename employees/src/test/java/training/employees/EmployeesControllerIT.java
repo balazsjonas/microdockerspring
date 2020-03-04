@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.web.client.RestTemplate;
 import training.employees.hello.HelloController;
 import training.employees.hello.HelloService;
 import training.employees.model.CreateEmployeeCommand;
@@ -25,7 +26,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class EmployeesControllerIT {
     @MockBean
     EmployeesService employeesService;
+    @MockBean
+    EventStoreGateway eventStoreGateway;
 
+    @MockBean
+    RestTemplate restTemplate2;
     @MockBean
     HelloService helloService;
 

@@ -4,13 +4,19 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.web.client.RestTemplate;
 import training.employees.hello.HelloService;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 class EmployeesApplicationTests {
+    @MockBean
+    EventStoreGateway eventStoreGateway;
 
+    @MockBean
+    RestTemplate restTemplate2;
     @Autowired
     HelloService helloService;
     @Test

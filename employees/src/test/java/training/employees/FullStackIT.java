@@ -5,7 +5,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.jdbc.Sql;
+import org.springframework.web.client.RestTemplate;
 import training.employees.model.CreateEmployeeCommand;
 import training.employees.model.EmployeeDto;
 
@@ -15,6 +17,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 @Sql(statements = "delete from employees") // beforeach
 public class FullStackIT {
+
+    @MockBean
+    EventStoreGateway eventStoreGateway;
+
+    @MockBean
+    RestTemplate restTemplate2;
     @Autowired
     EmployeeController controller;
 

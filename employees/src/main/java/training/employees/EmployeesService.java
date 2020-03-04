@@ -8,8 +8,6 @@ import training.employees.model.Employee;
 import training.employees.model.EmployeeDto;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
@@ -23,19 +21,22 @@ public class EmployeesService {
     private ModelMapper modelMapper;
 
     private DataEmployeesRepository employeesRepository;
+    private EventStoreGateway eventStoreGateway;
 
 //    private List<Employee> employees = Collections.synchronizedList(new ArrayList<>(List.of(
 //            new Employee(id.incrementAndGet(), "John Doe"),
 //            new Employee(id.incrementAndGet(), "Jane Doe"))));
 
-    public EmployeesService(ModelMapper modelMapper, DataEmployeesRepository employeesRepository) {
+    public EmployeesService(ModelMapper modelMapper, DataEmployeesRepository employeesRepository, EventStoreGateway eventStoreGateway) {
         this.modelMapper = modelMapper;
         this.employeesRepository = employeesRepository;
+        this.eventStoreGateway = eventStoreGateway;
     }
 
     @Transactional
     public EmployeeDto createEmployee(CreateEmployeeCommand command) {
         var employee = employeesRepository.save(new Employee(command.getName()));
+        eventStoreGateway.sendEvent(new CreateEventCommand(employee.toString()));
         return modelMapper.map(employee, EmployeeDto.class);
     }
 
