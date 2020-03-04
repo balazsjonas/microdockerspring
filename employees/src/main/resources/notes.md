@@ -212,6 +212,9 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
    * ebből van a baj :-)
    * exception csak commitkor van!!
    
+**Mongo**
+ 
+   
 
 **linkek**:
 * https://martinfowler.com/bliki/FeatureToggle.html
@@ -221,6 +224,7 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
 * https://spring.io/guides/gs/spring-boot-docker/
 * https://github.com/vishnubob/wait-for-it
 * http://dbunit.sourceforge.net/
+* https://university.mongodb.com/
 
 
 **TODO**

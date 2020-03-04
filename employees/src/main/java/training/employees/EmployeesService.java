@@ -7,9 +7,6 @@ import training.employees.model.CreateEmployeeCommand;
 import training.employees.model.Employee;
 import training.employees.model.EmployeeDto;
 
-import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
@@ -22,18 +19,15 @@ public class EmployeesService {
 
     private ModelMapper modelMapper;
 
-    private DataEmployeesRepository employeesRepository;
+    private EmployeesRepository employeesRepository;
 
-//    private List<Employee> employees = Collections.synchronizedList(new ArrayList<>(List.of(
-//            new Employee(id.incrementAndGet(), "John Doe"),
-//            new Employee(id.incrementAndGet(), "Jane Doe"))));
 
-    public EmployeesService(ModelMapper modelMapper, DataEmployeesRepository employeesRepository) {
+    public EmployeesService(ModelMapper modelMapper, EmployeesRepository employeesRepository) {
         this.modelMapper = modelMapper;
         this.employeesRepository = employeesRepository;
     }
 
-    @Transactional
+
     public EmployeeDto createEmployee(CreateEmployeeCommand command) {
         var employee = employeesRepository.save(new Employee(command.getName()));
         return modelMapper.map(employee, EmployeeDto.class);
@@ -48,23 +42,20 @@ public class EmployeesService {
                 .collect(Collectors.toList());
     }
 
-    public EmployeeDto findEmployeeById(long id) {
+    public EmployeeDto findEmployeeById(String id) {
         return modelMapper.map(employeesRepository.findById(id).orElseThrow(), EmployeeDto.class);
     }
 
-    @Transactional
-    public EmployeeDto updateEmployee(long id, UpdateEmployeeCommand command) {
+    public EmployeeDto updateEmployee(String id, UpdateEmployeeCommand command) {
         Optional<Employee> byId = employeesRepository.findById(id);
         byId.ifPresent(e -> e.setName(command.getName()));
         return modelMapper.map(byId.orElseThrow(), EmployeeDto.class);
     }
 
-    @Transactional
-    public void deleteEmployee(long id) {
+    public void deleteEmployee(String id) {
         employeesRepository.deleteById(id);
     }
 
-    @Transactional
     public void deleteAll() {
         id.set(0);
         employeesRepository.deleteAll();
