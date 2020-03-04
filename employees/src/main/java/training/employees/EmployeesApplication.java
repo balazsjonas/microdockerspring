@@ -27,5 +27,11 @@ public class EmployeesApplication {
     public ModelMapper modelMapper() {
         return new ModelMapper();
     }
-
+//    @Bean
+//    public MessageConverter messageConverter(ObjectMapper objectMapper){
+//        MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
+//        converter.setTypeIdPropertyName("_typeId");
+//        converter.setTypeIdMappings(Map.of("CreateEventCommand", CreateEventCommand.class));
+//        return converter;
+//    }
 }

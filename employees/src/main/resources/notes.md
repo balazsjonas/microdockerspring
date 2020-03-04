@@ -211,7 +211,12 @@ http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
  * SpringBootTest
    * ebből van a baj :-)
    * exception csak commitkor van!!
-   
+
+**JMS**
+ * Message oriented middleware
+ 
+**Actuatorok**
+ * 
 
 **linkek**:
 * https://martinfowler.com/bliki/FeatureToggle.html

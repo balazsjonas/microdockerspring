@@ -7,6 +7,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.web.client.RestTemplate;
+import training.employees.components.DataEmployeesRepository;
+import training.employees.components.EventStoreGateway;
 import training.employees.model.Employee;
 
 import static org.assertj.core.api.Assertions.assertThat;

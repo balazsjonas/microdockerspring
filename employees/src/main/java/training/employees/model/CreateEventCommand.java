@@ -1,4 +1,4 @@
-package training.employees;
+package training.employees.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

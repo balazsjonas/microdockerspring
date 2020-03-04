@@ -1,11 +1,13 @@
-package training.employees;
+package training.employees.components;
 
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import training.employees.model.CreateEventCommand;
 import training.employees.model.CreateEmployeeCommand;
 import training.employees.model.Employee;
 import training.employees.model.EmployeeDto;
+import training.employees.model.UpdateEmployeeCommand;
 
 import javax.transaction.Transactional;
 import java.util.List;

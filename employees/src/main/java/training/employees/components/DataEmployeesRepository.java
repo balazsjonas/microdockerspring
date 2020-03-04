@@ -1,4 +1,4 @@
-package training.employees;
+package training.employees.components;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import training.employees.model.Employee;

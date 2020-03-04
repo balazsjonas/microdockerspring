@@ -1,10 +1,9 @@
-package training.employees;
+package training.employees.components;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import training.employees.model.CreateEmployeeCommand;
-import training.employees.model.Employee;
 import training.employees.model.EmployeeDto;
+import training.employees.model.UpdateEmployeeCommand;
 
 import javax.validation.Valid;
 import java.util.List;

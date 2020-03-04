@@ -1,4 +1,4 @@
-package training.employees;
+package training.employees.components;
 
 import lombok.SneakyThrows;
 import org.springframework.dao.EmptyResultDataAccessException;

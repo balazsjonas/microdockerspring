@@ -1,13 +1,14 @@
 package training.employees;
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.web.client.RestTemplate;
+import training.employees.components.EmployeeController;
+import training.employees.components.EventStoreGateway;
 import training.employees.model.CreateEmployeeCommand;
 import training.employees.model.EmployeeDto;
 
